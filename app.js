@@ -35,7 +35,7 @@ const produtRoute = require("./routers/productRouter");
 app.use("/products", produtRoute);
 
 const uri =
-  "mongodb+srv://admin:admin@wdc028-course-booking.mgfy3.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://admin:admin@wdc028-course-booking.mgfy3.mongodb.net/luxeology?retryWrites=true&w=majority";
 
 const connectDB = () => {
   try {
