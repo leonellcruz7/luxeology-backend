@@ -140,7 +140,7 @@ module.exports = {
       const result = await Product.find().deleteMany();
       res.status(200).json(result);
     } catch (err) {
-      console.log(err);
+      res.status(409).json(err);
     }
   },
 
