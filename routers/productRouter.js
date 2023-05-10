@@ -4,6 +4,7 @@ const router = express.Router();
 const productController = require("../controllers/productController");
 
 router.post("/upload", upload.single("file"), productController.upload);
+router.get("/search", productController.searchProduct);
 router.get("/categories", productController.categories);
 router.post("/", productController.create);
 router.get("/", productController.getAll);

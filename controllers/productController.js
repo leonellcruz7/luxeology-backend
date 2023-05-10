@@ -9,6 +9,25 @@ cloudinary.config({
 });
 
 module.exports = {
+  searchProduct: async (req, res) => {
+    const query = req.body.search_value.toLowerCase();
+    const search = query.replace("-", " ");
+    const regex = new RegExp(search, "i");
+    try {
+      const result = await Product.find({
+        $or: [
+          { name: { $regex: regex } },
+          { description: { $regex: regex } },
+          { colors: { $regex: regex } },
+          { sizes: { $regex: regex } },
+          { category: { $regex: regex } },
+        ],
+      });
+      res.send(result);
+    } catch (err) {
+      res.status(409).json(err);
+    }
+  },
   getByCategory: async (req, res) => {
     try {
       if (req.params.category == "all") {
