@@ -23,7 +23,7 @@ module.exports = {
           { category: { $regex: regex } },
         ],
       });
-      res.send(result);
+      res.status(200).send(result);
     } catch (err) {
       res.status(409).json(err);
     }
